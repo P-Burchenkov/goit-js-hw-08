@@ -10,12 +10,12 @@ formEl.addEventListener('submit', onFormSubmit);
 
 function onFormInput(evt) {
   formData.email = formEl.email.value;
-    formData.message = formEl.message.value;
+  formData.message = formEl.message.value;
   //   formData.message = evt.currentTarget.elements.message.value;
   localStorage.setItem(KEY, JSON.stringify(formData));
 }
 function bootPage() {
-  if (!localStorage.length) {
+  if (!localStorage.getItem(KEY)) {
     return;
   }
   formEl.elements.message.value = JSON.parse(localStorage.getItem(KEY)).message;
