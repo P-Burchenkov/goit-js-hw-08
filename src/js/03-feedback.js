@@ -11,7 +11,6 @@ formEl.addEventListener('submit', onFormSubmit);
 function onFormInput(evt) {
   formData.email = formEl.email.value;
   formData.message = formEl.message.value;
-  //   formData.message = evt.currentTarget.elements.message.value;
   localStorage.setItem(KEY, JSON.stringify(formData));
 }
 function bootPage() {
@@ -23,7 +22,10 @@ function bootPage() {
 }
 function onFormSubmit(evt) {
   evt.preventDefault();
-
+    if (formEl.email.value === '' || formEl.message.value === '') {
+      console.log('Заповніть всі поля, будь ласка!!!')
+    return;
+  }
   formData.email = formEl.email.value;
   formData.message = formEl.message.value;
 
